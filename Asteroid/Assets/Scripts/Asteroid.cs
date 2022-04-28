@@ -42,12 +42,22 @@ public class Asteroid : MonoBehaviour
         {
             if ((this.size * 0.5f) >= this.minSize)
             {
-              //  Split();
-              //  Split();
+                Split();
+                Split();
             }
 
             FindObjectOfType<GameManager>().AsteroidDestroyed(this);
             Destroy(this.gameObject);
         }
+    }
+
+        private void Split()
+    {
+        Vector2 position = this.transform.position; //get the current position of asteroid
+        position += Random.insideUnitCircle * 0.5f; //change the direction of the small asteroid
+
+        Asteroid half = Instantiate(this, position, this.transform.rotation); //craete a smaller asteorid
+        half.size = this.size * 0.5f; // reduce the size
+        half.SetTrajectory(Random.insideUnitSphere.normalized * this.asteroidSpeed); //set a new trajectory/angle of small asteroid
     }
 }

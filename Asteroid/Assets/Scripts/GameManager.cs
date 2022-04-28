@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public Text ScoreText;
     public GameOver GameOverScreen;
     public Congrats CongratsScreen;
-    private int target = 20;
+    private int target = 100;
 
     private void Start()
     {
@@ -93,12 +93,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         this.lives = 3;
-       
-
         GameOverScreen.Setup(score);
-
-      //  Invoke(nameof(Respawn), this.respawnTime);
-
     }
     private void GameWin()
     {
