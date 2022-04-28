@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bullet
   - Asteroid
+  - Score
+  - Health
+  - _ScoreText
   layers:
   - Default
   - TransparentFX
